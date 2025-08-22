@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "about": "Sobre Mí",
+    "contact": "Contacto"
+  },
+  "home": {
+    "title": "Desarrolladora Junior Full Stack",
+    "subtitle": "Creando experiencias digitales excepcionales",
+    "bio": "Soy una desarrollador apasionado con experiencia en tecnologías modernas. Me especializo en crear aplicaciones web robustas y experiencias de usuario intuitivas.",
+    "downloadCV": "Descargar CV",
+    "featuredProjects": "Proyectos Destacados",
+    "viewAllProjects": "Ver Todos los Proyectos"
+  },
+  "projects": {
+    "title": "Mis Proyectos",
+    "backToProjects": "Volver a Proyectos",
+    "technologies": "Tecnologías",
+    "viewProject": "Ver Proyecto",
+    "liveDemo": "Demo en Vivo",
+    "sourceCode": "Código Fuente"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "bio": "Soy una desarrolladora junior full stack a la que le encanta crear aplicaciones web y móviles. Mi pasión por la tecnología me impulsa a estar siempre aprendiendo y experimentando con las últimas tendencias del desarrollo.",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "education": "Educación"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "message": "Mensaje",
+    "send": "Enviar Mensaje",
+    "socialMedia": "Redes Sociales",
+    "location": "Canals, España"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados"
+  }
+}

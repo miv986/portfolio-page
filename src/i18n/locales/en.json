@@ -1,0 +1,45 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About Me",
+    "contact": "Contact"
+  },
+  "home": {
+    "title": "Junior Full Stack Developer",
+    "subtitle": "Creating exceptional digital experiences",
+    "bio": "I'm a passionate developer with experience in modern technologies. I specialize in building robust web applications and intuitive user experiences.",
+    "downloadCV": "Download CV",
+    "featuredProjects": "Featured Projects",
+    "viewAllProjects": "View All Projects"
+  },
+  "projects": {
+    "title": "My Projects",
+    "backToProjects": "Back to Projects",
+    "technologies": "Technologies",
+    "viewProject": "View Project",
+    "liveDemo": "Live Demo",
+    "sourceCode": "Source Code"
+  },
+  "about": {
+    "title": "About Me",
+    "bio": "I'm a full stack developer with over 5 years of experience creating web and mobile applications. My passion for technology drives me to constantly learn and experiment with the latest development trends.",
+    "experience": "Experience",
+    "skills": "Skills",
+    "education": "Education"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Have a project in mind? Let's talk!",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send Message",
+    "socialMedia": "Social Media",
+    "location": "Canals, Spain"
+
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  }
+}
