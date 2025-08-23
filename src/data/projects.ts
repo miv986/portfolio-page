@@ -2,7 +2,7 @@ import { Project } from '../types';
 
 export const projects: Project[] = [
   {
-    id: 'ecommerce-platform',
+    id: 'translation-app',
     title: {
       es: 'Aplicación de traducciones con IA',
       en: 'E-commerce Platform'
@@ -12,17 +12,19 @@ export const projects: Project[] = [
       en: 'A complete e-commerce platform with inventory management and payments.'
     },
     longDescription: {
-      es: 'Desarrollé una plataforma completa de e-commerce desde cero, incluyendo un panel de administración, gestión de inventario, sistema de pagos con Stripe, y una interfaz de usuario moderna y responsiva. La aplicación maneja miles de productos y procesa cientos de transacciones diarias.',
-      en: 'I developed a complete e-commerce platform from scratch, including an admin panel, inventory management, Stripe payment system, and a modern responsive user interface. The application handles thousands of products and processes hundreds of daily transactions.'
+
+      "es": "Desarrollé una aplicación de traducción contextual por escenas, integrando Mistral-7B vía Ollama, servicios de Text-to-Speech y Speech-to-Text. Implementé backend en Spring Boot con autenticación JWT y un frontend en Jetpack Compose (aprendido para el proyecto). Desplegué la solución en Azure sobre una VM Ubuntu, conectando y orquestando todos los servicios de IA y audio de extremo a extremo.",
+      "en": "Built a scene-based translation application integrating Mistral-7B via Ollama, Text-to-Speech, and Speech-to-Text services. Implemented a Spring Boot backend with JWT authentication and a Jetpack Compose frontend (learned for the project). Deployed on Azure using an Ubuntu VM, wiring and orchestrating all AI and audio services end-to-end.",
+
     },
     image: '/src/assets/logo-removebg-preview (1).png',
     technologies: ['Jetpack Compose', 'AI', 'PostgreSQL', 'Kotlin', 'Spring Boot'],
     liveUrl: 'https://example-ecommerce.com',
-    githubUrl: 'https://github.com/username/ecommerce-platform',
+    githubUrl: 'https://github.com/miv986/habinext_frontend',
     featured: true
   },
   {
-    id: 'task-management-app',
+    id: 'secondhand-sale-app',
     title: {
       es: 'Aplicación de ventas de segunda mano',
       en: 'Task Management App'

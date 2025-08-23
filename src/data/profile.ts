@@ -1,16 +1,17 @@
 import { Experience, Education } from '../types';
 
 export const experiences: Experience[] = [
+
   {
-    company: '',
+    company: 'Pawify.org',
     position: {
       es: 'Desarrolladora Junior Frontend',
-      en: 'Junior Frontend Developer'
+      en: 'Frontend Junior Developer'
     },
-    period: '2025 - Presente',
+    period: '07/2025 - Present',
     description: {
-      es: '',
-      en: ''
+      es: 'Desarrollo y refactorizo la web de Pawify.es utilizando React.',
+      en: 'Develop and refactor Pawify.es web using React.'
     }
   },
   {
@@ -35,14 +36,6 @@ export const education: Education[] = [
       en: 'Multiplatform Application Development'
     },
     period: '2023 - 2025'
-  },
-  {
-    institution: 'Coursera / Google',
-    degree: {
-      es: 'Certificación en Desarrollo Web Full Stack',
-      en: 'Full Stack Web Development Certificate'
-    },
-    period: '2019'
   }
 ];
 

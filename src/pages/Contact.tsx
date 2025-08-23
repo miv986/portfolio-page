@@ -114,7 +114,7 @@ const Contact: React.FC = () => {
                 +34 632 109 661
               </a>
               <a
-                href="https://github.com/miroslava98"
+                href="https://github.com/miv986"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors"

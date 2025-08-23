@@ -40,14 +40,14 @@ const Home: React.FC = () => {
     <div className="min-h-screen">
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-indigo-100 py-20">
+      <section className="bg-customPurple2 text-white py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
 
               <SplitText
-                text="Miroslava Ivanova"
-                className="text-5xl font-bold text-gray-900 mb-4"
+                text="Hola, soy Miroslava"
+                className="text-4xl font-bold text-gray-900 mb-4"
                 delay={100}
                 duration={0.6}
                 ease="power3.out"

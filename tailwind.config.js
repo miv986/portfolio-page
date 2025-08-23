@@ -22,6 +22,9 @@ export default {
           800: '#1e40af',
           900: '#1e3a8a',
         },
+        customPurple: "#AB8476",
+        customPurple2: "#A391B6",
+        englishViolet: "#3D314A",
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',
