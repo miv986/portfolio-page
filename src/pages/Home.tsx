@@ -17,7 +17,7 @@ const Home: React.FC = () => {
   };
 
   const handleDownloadCV = () => {
-    const cvUrl = i18n.language === 'es' ? '/Miroslava Ivanova-CV-esp.pdf' : '/Miroslava Ivanova-CV-eng.pdf';
+    const cvUrl = i18n.language === 'es' ? '/portfolio-page/Miroslava Ivanova-CV-esp.pdf' : '/portfolio-page/Miroslava Ivanova-CV-eng.pdf';
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = `CV-${i18n.language.toUpperCase()}.pdf`;
@@ -137,7 +137,7 @@ const Home: React.FC = () => {
                   className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-large border-4 border-white/50 backdrop-blur-sm"
                 >
                   <img
-                    src="/image.jpg"
+                    src="/portfolio-page/image.jpg"
                     alt="Miroslava Ivanova"
                     className="w-full h-full object-cover"
                   />

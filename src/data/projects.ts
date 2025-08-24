@@ -47,11 +47,11 @@ export const projects: Project[] = [
         The main challenge was orchestrating voice services and model responses to create a smooth mobile experience.`
       }
     },
-    image: '/logo.jpg',
+    image: '/portfolio-page/logo.jpg',
     images: [
-      '/logo.jpg',
-      '/talkflow-scene.png',
-      '/talkflow-chat.png'
+      '/portfolio-page/logo.jpg',
+      '/portfolio-page/talkflow-scene.png',
+      '/portfolio-page/talkflow-chat.png'
     ],
     technologies: [
       'Kotlin',
@@ -125,14 +125,14 @@ export const projects: Project[] = [
         I also gained practical experience in cloud deployment (Azure) and learned the value of automation in tasks such as backups and notifications.`
       }
     },
-    image: '/simarropoplogo.jpeg',
+    image: '/portfolio-page/simarropoplogo.jpeg',
     images: [
-      '/simarropoplogo.jpeg',
-      '/simarropop1.jpg',
-      '/simarropop2.jpg',
-      '/simarropop3.jpg',
-      '/simarropop4.jpg',
-      '/simarropop5.jpg',
+      '/portfolio-page/simarropoplogo.jpeg',
+      '/portfolio-page/simarropop1.jpg',
+      '/portfolio-page/simarropop2.jpg',
+      '/portfolio-page/simarropop3.jpg',
+      '/portfolio-page/simarropop4.jpg',
+      '/portfolio-page/simarropop5.jpg',
     ],
     technologies: ['Kotlin',
       'Android SDK',
@@ -153,7 +153,7 @@ export const projects: Project[] = [
       'Azure',
       'Ubuntu/Linux',
       'Git'],
-    liveUrl: 'https://www.dropbox.com/scl/fi/xuk6unbhxh9www5exak4a/SimarroPop_Demo.mp4?rlkey=egbp8k4glzg9kfighgx3ot8w7&st=06zvpcfy&dl=0',
+    liveUrl: 'https://www.dropbox.com/scl/fi/xuk6unbhxh9www5exak4a/portfolio-page/simarropop_Demo.mp4?rlkey=egbp8k4glzg9kfighgx3ot8w7&st=06zvpcfy&dl=0',
     githubUrl: 'https://github.com/username/task-management',
     featured: true
   },
@@ -192,13 +192,13 @@ export const projects: Project[] = [
         On the backend, Spring Boot with Spring Security, CORS handling, REST APIs, and JWT was configured to ensure secure sessions. 
         The database is in design phase, focusing on scalability and normalization for users, properties, and transactions.`,
   
-        learnings: `I am learning React Native from scratch, understanding how to build cross-platform apps with a single codebase. 
+        learnings: `I am learning React Native from scratch, understanding how Fto build cross-platform apps with a single codebase. 
         On the backend, I am reinforcing Spring Security, JWT, and BCrypt for robust authentication and best practices in REST API design. 
         The biggest learning has been coordinating the development of a cross-platform frontend with a secure backend, and ensuring smooth integration between them.`
       }
     },
-    image: '/habinext-logo.jpg',
-    images: ['/habinext-logo.jpg'],
+    image: '/portfolio-page/habinext-logo.jpg',
+    images: ['/portfolio-page/habinext-logo.jpg'],
     technologies: [
       'React Native',
       'Expo',

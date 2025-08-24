@@ -1,16 +1,18 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
+// Detecta si estás haciendo build para GitHub Pages
+const isGitHubPages = process.env.DEPLOY_ENV === 'github';
+
 export default defineConfig({
+  base: isGitHubPages ? '/portfolio-page/' : './', // usa /portfolio-page/ solo en GitHub Pages
   plugins: [react()],
-  base: '/portfolio-page/',
   build: {
-    outDir: 'docs',  // <-- aquí cambias de dist a docs
+    outDir: 'docs',
   },
   server: {
-    host: 'localhost', // <-- clave
-    port: 5173,         // opcional, puedes cambiarlo si el puerto está ocupado
-    strictPort: true    // lanza error si el puerto está ocupado (útil para depurar)
-  }
-})
+    host: 'localhost',
+    port: 5173,
+    strictPort: true,
+  },
+});
