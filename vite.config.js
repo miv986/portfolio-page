@@ -5,9 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/portfolio-page/',
-  plugins: [react()],
   build: {
-    outDir: 'dist',  // <-- aquí cambias de dist a docs
+    outDir: 'docs',  // <-- aquí cambias de dist a docs
   },
   server: {
     host: 'localhost', // <-- clave
