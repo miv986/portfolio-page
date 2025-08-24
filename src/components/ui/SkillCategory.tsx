@@ -6,7 +6,7 @@ import Card from './Card';
 
 interface SkillCategoryProps {
   title: string;
-  icon: LucideIcon;
+  icon: typeof LucideIcon;
   skills: string[];
   color: 'primary' | 'secondary' | 'accent';
   delay?: number;
