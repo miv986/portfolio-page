@@ -1,10 +1,12 @@
-// vite.config.ts
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig(({ command, mode }) => ({
-  base: command === 'build' && mode === 'github'
-    ? '/portfolio-page/'  // para GitHub Pages
-    : '/',                // para Netlify y local
+// https://vite.dev/config/
+export default defineConfig({
   plugins: [react()],
-}))
+  server: {
+    host: 'localhost', // <-- clave
+    port: 5173,         // opcional, puedes cambiarlo si el puerto está ocupado
+    strictPort: true    // lanza error si el puerto está ocupado (útil para depurar)
+  }
+})
