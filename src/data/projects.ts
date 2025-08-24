@@ -47,11 +47,11 @@ export const projects: Project[] = [
         The main challenge was orchestrating voice services and model responses to create a smooth mobile experience.`
       }
     },
-    image: '/public/logo.jpg',
+    image: '/logo.jpg',
     images: [
-      '/public/logo.jpg',
-      '/public/talkflow-scene.png',
-      '/public/talkflow-chat.png'
+      '/logo.jpg',
+      '/talkflow-scene.png',
+      '/talkflow-chat.png'
     ],
     technologies: [
       'Kotlin',
@@ -125,14 +125,14 @@ export const projects: Project[] = [
         I also gained practical experience in cloud deployment (Azure) and learned the value of automation in tasks such as backups and notifications.`
       }
     },
-    image: '/public/simarropoplogo.jpeg',
+    image: '/simarropoplogo.jpeg',
     images: [
-      '/public/simarropoplogo.jpeg',
-      '/public/simarropop1.jpg',
-      '/public/simarropop2.jpg',
-      '/public/simarropop3.jpg',
-      '/public/simarropop4.jpg',
-      '/public/simarropop5.jpg',
+      '/simarropoplogo.jpeg',
+      '/simarropop1.jpg',
+      '/simarropop2.jpg',
+      '/simarropop3.jpg',
+      '/simarropop4.jpg',
+      '/simarropop5.jpg',
     ],
     technologies: ['Kotlin',
       'Android SDK',
@@ -197,8 +197,8 @@ export const projects: Project[] = [
         The biggest learning has been coordinating the development of a cross-platform frontend with a secure backend, and ensuring smooth integration between them.`
       }
     },
-    image: '/public/habinext-logo.jpg',
-    images: ['/public/habinext-logo.jpg'],
+    image: '/habinext-logo.jpg',
+    images: ['/habinext-logo.jpg'],
     technologies: [
       'React Native',
       'Expo',
