@@ -17,6 +17,9 @@
     "title": "My Projects",
     "backToProjects": "Back to Projects",
     "technologies": "Technologies",
+    "overview": "Project Overview",
+    "implementation": "Implementation Details",
+    "learnings": "Learnings and Challenges",
     "viewProject": "View Project",
     "liveDemo": "Live Demo",
     "sourceCode": "Source Code"
@@ -37,7 +40,6 @@
     "send": "Send Message",
     "socialMedia": "Social Media",
     "location": "Canals, Spain"
-
   },
   "footer": {
     "rights": "All rights reserved"

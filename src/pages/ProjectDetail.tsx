@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { projects } from '../data/projects';
+import motion from 'framer-motion';
 
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -44,16 +45,44 @@ const ProjectDetail: React.FC = () => {
               className="w-full h-full object-cover"
             />
           </div>
-          
+          {project.images && project.images.length > 1 && (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-6">
+              {project.images.map((imgUrl, index) => (
+                <img
+                  key={index}
+                  src={imgUrl}
+                  alt={`${project.title[currentLang]} - ${index + 1}`}
+                  className="w-full h-48 object-cover rounded-lg shadow-sm"
+                />
+              ))}
+            </div>
+          )}
+
+
           <div className="p-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
               {project.title[currentLang]}
             </h1>
-            
-            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-              {project.longDescription[currentLang]}
-            </p>
-            
+
+            <div className="space-y-6 text-gray-700 mb-4">
+              <section>
+                <h2 className="text-xl font-bold text-gray-900 mb-2">{t('projects.overview')}</h2>
+                <p className="text-base leading-relaxed">{project.longDescription[currentLang].overview}</p>
+              </section>
+              <hr className="my-4 border-gray-300" />
+
+              <section className='bg-gray-50 p-4 rounded-lg'>
+                <h2 className="text-xl font-bold text-gray-900 mb-2">{t('projects.implementation')}</h2>
+                <p className="text-base leading-relaxed">{project.longDescription[currentLang].implementation}</p>
+              </section>
+              <hr className="my-4 border-gray-300" />
+
+              <section className='bg-gray-50 p-4 rounded-lg'>
+                <h2 className="text-xl font-bold text-gray-900 mb-2">{t('projects.learnings')}</h2>
+                <p className="text-base leading-relaxed">{project.longDescription[currentLang].learnings}</p>
+              </section>
+            </div>
+
             <div className="mb-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-3">
                 {t('projects.technologies')}
@@ -69,7 +98,7 @@ const ProjectDetail: React.FC = () => {
                 ))}
               </div>
             </div>
-            
+
             <div className="flex gap-4">
               {project.liveUrl && (
                 <a

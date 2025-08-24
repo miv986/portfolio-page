@@ -40,7 +40,7 @@ const Home: React.FC = () => {
     <div className="min-h-screen">
 
       {/* Hero Section */}
-      <section className="bg-customPurple2 text-white py-20">
+      <section className="bg-customPurple text-white py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -69,7 +69,7 @@ const Home: React.FC = () => {
               </p>
               <button
                 onClick={handleDownloadCV}
-                className="inline-flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+                className="inline-flex items-center gap-2 bg-buttonColor text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200"
               >
                 <Download size={20} />
                 {t('home.downloadCV')}

@@ -16,6 +16,9 @@
   "projects": {
     "title": "Mis Proyectos",
     "backToProjects": "Volver a Proyectos",
+    "overview": "Resumen del proyecto",
+    "implementation": "Cómo se hizo",
+    "learnings": "Aprendizajes y desafíos",
     "technologies": "Tecnologías",
     "viewProject": "Ver Proyecto",
     "liveDemo": "Demo en Vivo",

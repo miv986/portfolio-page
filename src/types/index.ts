@@ -9,10 +9,19 @@ export interface Project {
     en: string;
   };
   longDescription: {
-    es: string;
-    en: string;
+    es: {
+      overview: string,
+      implementation: string,
+      learnings: string,
+    },
+    en: {
+      overview: string,
+      implementation: string,
+      learnings: string,
+    },
   };
   image: string;
+  images: string[],
   technologies: string[];
   liveUrl?: string;
   githubUrl?: string;
