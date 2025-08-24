@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
 
 * {
   margin: 0;
@@ -12,15 +10,17 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;
-  color: #374151;
-  background-color: #f9fafb;
-}
-
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #684756;
+  background-color: #f9fafb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom scrollbar */
@@ -29,70 +29,36 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #e7e6f7;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: linear-gradient(to bottom, #7a6bc8, #b68899);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: linear-gradient(to bottom, #6b56b4, #a77084);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Focus styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+  outline: 2px solid #7a6bc8;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  0% {
-    scale: 2;
-    transform: translateXY(20px);
-    border-radius: 50%;
-    opacity: 0;
-
-  }
-
-  50% {
-    transform: scale(1.1);
-    border-radius: 10%;
-    opacity: 0.5;
-  }
-
-  100% {
-    transform: scale(1) translateX(0);
-    border-radius: 0;
-    opacity: 1;
-  }
-}
-
-/* Focus styles */
+/* Remove default focus styles */
 button:focus,
 input:focus,
 textarea:focus,
-select:focus {
-  outline: 2px solid #3b82f6;
-  outline-offset: 2px;
+select:focus,
+a:focus {
+  outline: none;
 }
 
 /* Link styles */
@@ -103,19 +69,141 @@ a {
 /* Button styles */
 button {
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-/* Image loading */
+button:disabled {
+  cursor: not-allowed;
+}
+
+/* Image loading and optimization */
 img {
   transition: opacity 0.3s ease-in-out;
+  max-width: 100%;
+  height: auto;
 }
 
-img[loading] {
+img[loading="lazy"] {
   opacity: 0;
 }
 
-img[loading="lazy"]:not([src]) {
-  opacity: 0;
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Text selection */
+::selection {
+  background-color: #7a6bc8;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: #7a6bc8;
+  color: white;
+}
+
+/* Utility classes */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #7a6bc8 0%, #b68899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Responsive design helpers */
+@media (max-width: 640px) {
+  .text-responsive {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+  }
+  
+  .heading-responsive {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
 }
 
 /* Print styles */
@@ -123,4 +211,36 @@ img[loading="lazy"]:not([src]) {
   .no-print {
     display: none !important;
   }
+  
+  * {
+    color: black !important;
+    background: white !important;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .shadow-soft,
+  .shadow-medium,
+  .shadow-large {
+    box-shadow: none;
+    border: 2px solid currentColor;
+  }
+}
+
+/* Dark mode support (for future implementation) */
+@media (prefers-color-scheme: dark) {
+  /* Dark mode styles would go here */
 }

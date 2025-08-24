@@ -1,106 +1,223 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { experiences, education, skills } from '../data/profile';
+import { motion } from 'framer-motion';
+import { 
+  Code2, 
+  Layers, 
+  Wrench, 
+  Database, 
+  Palette,
+  Briefcase,
+  GraduationCap,
+  User
+} from 'lucide-react';
+import { experiences, education } from '../data/profile';
+import SkillCategory from '../components/ui/SkillCategory';
+import Card from '../components/ui/Card';
 
 const About: React.FC = () => {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language as 'es' | 'en';
-  const [show, setShow] = useState(false);
 
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShow(true), 50);
-    return () => clearTimeout(timer);
-  }, []);
+  const skillCategories = [
+    {
+      title: i18n.language === 'es' ? 'Tecnologías' : 'Technologies',
+      icon: Code2,
+      skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Java', 'Kotlin', 'PHP', 'SQL', 'XML'],
+      color: 'primary' as const,
+    },
+    {
+      title: i18n.language === 'es' ? 'Frameworks' : 'Frameworks',
+      icon: Layers,
+      skills: ['React', 'React Native', 'Spring Boot', 'Jetpack Compose', 'Bootstrap', 'Tailwind CSS'],
+      color: 'secondary' as const,
+    },
+    {
+      title: i18n.language === 'es' ? 'Herramientas' : 'Tools',
+      icon: Wrench,
+      skills: ['Git', 'GitHub', 'Postman', 'Maven', 'Gradle', 'IntelliJ IDEA', 'Android Studio', 'VS Code'],
+      color: 'accent' as const,
+    },
+    {
+      title: i18n.language === 'es' ? 'Bases de Datos' : 'Databases',
+      icon: Database,
+      skills: ['MySQL', 'SQLite', 'PostgreSQL', 'Room', 'Hibernate'],
+      color: 'primary' as const,
+    },
+    {
+      title: 'UX/UI',
+      icon: Palette,
+      skills: ['Figma', 'Material Design', 'Responsive Design', 'Prototyping', 'Wireframing', 'Accessibility'],
+      color: 'secondary' as const,
+    },
+  ];
 
   return (
-    <div className={`min-h-screen bg-gray-50 py-12 ${show ? 'opacity-100' : 'opacity-0'}`}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 transition-opacity duration-700">
-        {/* Aquí iría el contenido animado por secciones */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+    <div className="min-h-screen bg-gradient-to-br from-lavender-web to-pale-purple py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-4xl lg:text-5xl font-bold text-raisin-black mb-6">
             {t('about.title')}
           </h1>
-        </div>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary-600 to-secondary-600 mx-auto rounded-full" />
+        </motion.div>
 
         {/* Bio Section */}
-        <div className={`bg-white rounded-lg shadow-md p-8 mb-8 ${show ? 'fade-in' : ''}`}
-          style={show ? { animationDelay: '0.5s' } : {}}>
-
-          <p className="text-lg text-gray-600 leading-relaxed mb-6">
-            {t('about.bio')}
-          </p>
-          <div className="grid md:grid-cols-1 gap-8">
-            <div>
-              <img
-                src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Working"
-                className="w-full h-64 object-cover rounded-lg"
-              />
-            </div>
-            <div className="flex items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-16"
+        >
+          <Card padding="lg" shadow="medium">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {t('about.skills')}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 bg-primary-100 text-primary-600 rounded-lg">
+                    <User size={24} />
+                  </div>
+                  <h2 className="text-2xl font-bold text-primary-800">
+                    {i18n.language === 'es' ? 'Sobre Mí' : 'About Me'}
+                  </h2>
                 </div>
+                <p className="text-lg text-eggplant leading-relaxed">
+                  {t('about.bio')}
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="w-64 h-64 rounded-2xl overflow-hidden shadow-large"
+                >
+                  <img
+                    src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Working"
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
               </div>
             </div>
+          </Card>
+        </motion.div>
+
+        {/* Skills Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mb-16"
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-raisin-black mb-4">
+              {t('about.skills')}
+            </h2>
+            <p className="text-lg text-eggplant">
+              {i18n.language === 'es' 
+                ? 'Tecnologías y herramientas que domino' 
+                : 'Technologies and tools I work with'}
+            </p>
           </div>
-        </div>
-
-        {/* Experience Section */}
-        <div className={`bg-white rounded-lg shadow-md p-8 mb-8 ${show ? 'fade-in' : ''}`}
-          style={show ? { animationDelay: '0.5s' } : {}}>
-
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            {t('about.experience')}
-          </h2>
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <div key={index} className="border-l-4 border-blue-600 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  {exp.position[currentLang]}
-                </h3>
-                <p className="text-blue-600 font-medium mb-2">
-                  {exp.company} • {exp.period}
-                </p>
-                <p className="text-gray-600">
-                  {exp.description[currentLang]}
-                </p>
-              </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {skillCategories.map((category, index) => (
+              <SkillCategory
+                key={category.title}
+                title={category.title}
+                icon={category.icon}
+                skills={category.skills}
+                color={category.color}
+                delay={index * 0.1}
+              />
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Education Section */}
-        <div className={`bg-white rounded-lg shadow-md p-8 mb-8 ${show ? 'fade-in' : ''}`}
-          style={show ? { animationDelay: '0.5s' } : {}}>
-
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            {t('about.education')}
-          </h2>
-          <div className="space-y-6">
-            {education.map((edu, index) => (
-              <div key={index} className="border-l-4 border-green-600 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900">
-                  {edu.degree[currentLang]}
-                </h3>
-                <p className="text-green-600 font-medium mb-2">
-                  {edu.institution} • {edu.period}
-                </p>
+        {/* Experience & Education */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Experience Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <Card padding="lg" shadow="medium" className="h-full">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="p-2 bg-secondary-100 text-secondary-600 rounded-lg">
+                  <Briefcase size={24} />
+                </div>
+                <h2 className="text-2xl font-bold text-secondary-800">
+                  {t('about.experience')}
+                </h2>
               </div>
-            ))}
-          </div>
+              
+              <div className="space-y-6">
+                {experiences.map((exp, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                    className="relative pl-6 border-l-2 border-secondary-200 last:border-l-0"
+                  >
+                    <div className="absolute -left-2 top-0 w-4 h-4 bg-secondary-500 rounded-full" />
+                    <h3 className="text-lg font-semibold text-raisin-black">
+                      {exp.position[currentLang]}
+                    </h3>
+                    <p className="text-secondary-600 font-medium mb-2">
+                      {exp.company} • {exp.period}
+                    </p>
+                    <p className="text-eggplant leading-relaxed">
+                      {exp.description[currentLang]}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
+          </motion.div>
+
+          {/* Education Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <Card padding="lg" shadow="medium" className="h-full">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="p-2 bg-accent-100 text-accent-600 rounded-lg">
+                  <GraduationCap size={24} />
+                </div>
+                <h2 className="text-2xl font-bold text-accent-800">
+                  {t('about.education')}
+                </h2>
+              </div>
+              
+              <div className="space-y-6">
+                {education.map((edu, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
+                    className="relative pl-6 border-l-2 border-accent-200 last:border-l-0"
+                  >
+                    <div className="absolute -left-2 top-0 w-4 h-4 bg-accent-500 rounded-full" />
+                    <h3 className="text-lg font-semibold text-raisin-black">
+                      {edu.degree[currentLang]}
+                    </h3>
+                    <p className="text-accent-600 font-medium">
+                      {edu.institution} • {edu.period}
+                    </p>
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
+          </motion.div>
         </div>
       </div>
     </div>
