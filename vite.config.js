@@ -4,6 +4,11 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/portfolio-page/',
+  plugins: [react()],
+  build: {
+    outDir: 'dist',  // <-- aquí cambias de dist a docs
+  },
   server: {
     host: 'localhost', // <-- clave
     port: 5173,         // opcional, puedes cambiarlo si el puerto está ocupado
