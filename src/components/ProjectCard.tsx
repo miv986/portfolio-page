@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github } from 'lucide-react';
 import { Project } from '../types';
-import Badge from './ui/Badge';
+import { motion } from 'framer-motion';
 import Card from './ui/Card';
-import Button from './ui/Button';
 
 interface ProjectCardProps {
   project: Project;
@@ -21,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   };
 
   return (
-    <Card padding="none" shadow="medium" className="overflow-hidden group">
+    <Card padding="none" shadow="medium" className="overflow-hidden group flex flex-col justify-between h-full">
       {/* Image */}
       <div className="aspect-video overflow-hidden relative">
         <motion.img
@@ -31,7 +29,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           whileHover={{ scale: 1.05 }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-raisin-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
+
         {/* Overlay buttons */}
         <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           {project.liveUrl && (
@@ -60,41 +58,57 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           )}
         </div>
       </div>
-
-      {/* Content */}
       <div className="p-6">
-        <h3 className="text-xl font-bold text-raisin-black mb-3 group-hover:text-primary-600 transition-colors">
-          {project.title[currentLang]}
-        </h3>
-        
-        <p className="text-eggplant mb-4 leading-relaxed line-clamp-3">
+        <h3 className="text-lg font-semibold">{project.title[currentLang]}</h3>
+        <p className="text-gray-600 mb-4">
           {project.description[currentLang]}
         </p>
-
-        {/* Technologies */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.technologies.slice(0, 4).map((tech) => (
-            <Badge key={tech} variant="primary" size="sm">
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies.slice(0, 5).map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
+            >
               {tech}
-            </Badge>
+            </span>
           ))}
-          {project.technologies.length > 4 && (
-            <Badge variant="outline" size="sm">
-              +{project.technologies.length - 4}
-            </Badge>
+          {project.technologies.length > 5 && (
+            <span className="px-3 py-1 bg-gray-200 text-gray-700 text-sm rounded-full">
+              +{project.technologies.length - 5} más
+            </span>
           )}
         </div>
 
-        {/* View Project Button */}
-        <Link to={getProjectPath(project.id)}>
-          <Button 
-            variant="outline" 
-            className="w-full group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600 transition-all duration-300"
+        <div className="flex items-center justify-between">
+          <Link
+            to={getProjectPath(project.id)}
+            className="text- hover:text-blue-800 font-medium"
           >
             {t('projects.viewProject')}
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </Link>
+          </Link>
+          <div className="flex gap-2">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                <ExternalLink size={18} />
+              </a>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+              >
+                <Github size={18} />
+              </a>
+            )}
+          </div>
+        </div>
       </div>
     </Card>
   );

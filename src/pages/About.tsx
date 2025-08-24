@@ -54,7 +54,7 @@ const About: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-lavender-web to-pale-purple py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto mt-[2rem] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}

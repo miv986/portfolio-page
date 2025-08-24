@@ -24,7 +24,7 @@ const Projects: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-lavender-web to-pale-purple py-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto mt-[2rem] px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -126,7 +126,7 @@ const Projects: React.FC = () => {
           layout
           className={
             viewMode === 'grid'
-              ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-8'
+              ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-6'
               : 'space-y-6'
           }
         >

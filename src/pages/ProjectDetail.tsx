@@ -59,7 +59,7 @@ const ProjectDetail: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-lavender-web to-pale-purple py-12">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto mt-[2rem] px-4 sm:px-6 lg:px-8">
         {/* Back Navigation */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -117,7 +117,7 @@ const ProjectDetail: React.FC = () => {
             {/* Action Buttons */}
             <div className="flex flex-wrap justify-center gap-4">
               {project.liveUrl && (
-                <Button variant="primary" size="lg" asChild>
+                <Button variant="primary" size="lg" >
                   <a
                     href={project.liveUrl}
                     target="_blank"
@@ -129,7 +129,7 @@ const ProjectDetail: React.FC = () => {
                 </Button>
               )}
               {project.githubUrl && (
-                <Button variant="outline" size="lg" asChild>
+                <Button variant="outline" size="lg" >
                   <a
                     href={project.githubUrl}
                     target="_blank"
@@ -156,8 +156,8 @@ const ProjectDetail: React.FC = () => {
               <Card padding="lg" shadow="medium" className={section.bgClass}>
                 <div className="flex items-start gap-4">
                   <div className={`p-3 rounded-xl bg-white shadow-soft`}>
-                    <section.icon 
-                      size={24} 
+                    <section.icon
+                      size={24}
                       className={`text-${section.color}-600`}
                     />
                   </div>

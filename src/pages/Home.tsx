@@ -29,7 +29,7 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-lavender-web via-pale-purple to-lavender-web-2 overflow-hidden">
+      <section className="relative sm:max-h-screen lg:max-h-[48rem] bg-gradient-to-br from-lavender-web via-pale-purple to-lavender-web-2 overflow-hidden">
         <FloatingElements />
         
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
@@ -208,7 +208,7 @@ const Home: React.FC = () => {
             className="text-center"
           >
             <Link to={getProjectsPath()}>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className='bg-[#e7e6f7]'>
                 {t('home.viewAllProjects')}
                 <ArrowRight size={20} />
               </Button>
