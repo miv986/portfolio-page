@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -12,7 +12,6 @@ import Contact from './pages/Contact';
 function App() {
   const { i18n } = useTranslation();
 
-  // Create localized routes based on current language
   const getLocalizedRoutes = () => {
     if (i18n.language === 'es') {
       return (
@@ -22,8 +21,6 @@ function App() {
           <Route path="/proyecto/:id" element={<ProjectDetail />} />
           <Route path="/sobre-mi" element={<About />} />
           <Route path="/contacto" element={<Contact />} />
-          
-          {/* Redirect English routes to Spanish when Spanish is selected */}
           <Route path="/projects" element={<Navigate to="/proyectos" replace />} />
           <Route path="/project/:id" element={<Navigate to="/proyectos" replace />} />
           <Route path="/about" element={<Navigate to="/sobre-mi" replace />} />
@@ -38,8 +35,6 @@ function App() {
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          
-          {/* Redirect Spanish routes to English when English is selected */}
           <Route path="/proyectos" element={<Navigate to="/projects" replace />} />
           <Route path="/proyecto/:id" element={<Navigate to="/projects" replace />} />
           <Route path="/sobre-mi" element={<Navigate to="/about" replace />} />
@@ -53,9 +48,7 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gray-50">
         <Navbar />
-        <main>
-          {getLocalizedRoutes()}
-        </main>
+        <main>{getLocalizedRoutes()}</main>
         <Footer />
       </div>
     </Router>
