@@ -140,7 +140,7 @@ const Home: React.FC = () => {
                   className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-large border-4 border-white/50 backdrop-blur-sm"
                 >
                   <img
-                    src={`${basePath}/image.jpg`}
+                    src={`${basePath}/logo.png`}
                     alt="Miroslava Ivanova"
                     className="w-full h-full object-cover"
                   />
