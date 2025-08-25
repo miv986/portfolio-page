@@ -11,13 +11,16 @@ import FloatingElements from '../components/ui/FloatingElements';
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
   const featuredProjects = projects.filter(p => p.featured);
+  const basePath = import.meta.env.VITE_BASE_PATH || '';
 
   const getProjectsPath = () => {
     return i18n.language === 'es' ? '/proyectos' : '/projects';
   };
 
   const handleDownloadCV = () => {
-    const cvUrl = i18n.language === 'es' ? '/portfolio-page/Miroslava Ivanova-CV-esp.pdf' : '/portfolio-page/Miroslava Ivanova-CV-eng.pdf';
+    const cvUrl = i18n.language === 'es'
+      ? `${basePath}/Miroslava Ivanova-CV-esp.pdf`
+      : `${basePath}/Miroslava Ivanova-CV-eng.pdf`;;
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = `CV-${i18n.language.toUpperCase()}.pdf`;
@@ -31,7 +34,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative sm:max-h-screen lg:max-h-[48rem] bg-gradient-to-br from-lavender-web via-pale-purple to-lavender-web-2 overflow-hidden">
         <FloatingElements />
-        
+
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
             {/* Content */}
@@ -54,7 +57,7 @@ const Home: React.FC = () => {
                     {i18n.language === 'es' ? 'Hola, soy' : 'Hello, I\'m'}
                   </span>
                 </motion.div>
-                
+
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -64,7 +67,7 @@ const Home: React.FC = () => {
                   Miroslava
                   <span className="block text-primary-600">Ivanova</span>
                 </motion.h1>
-                
+
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -137,7 +140,7 @@ const Home: React.FC = () => {
                   className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden shadow-large border-4 border-white/50 backdrop-blur-sm"
                 >
                   <img
-                    src="/portfolio-page/image.jpg"
+                    src={`${basePath}/image.jpg`}
                     alt="Miroslava Ivanova"
                     className="w-full h-full object-cover"
                   />

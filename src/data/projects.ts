@@ -1,4 +1,5 @@
 import { Project } from '../types';
+const base = import.meta.env.VITE_BASE_PATH
 
 export const projects: Project[] = [
   {
@@ -47,11 +48,11 @@ export const projects: Project[] = [
         The main challenge was orchestrating voice services and model responses to create a smooth mobile experience.`
       }
     },
-    image: '/portfolio-page/logo.jpg',
+    image: `${base}/logo.jpg`,
     images: [
-      '/portfolio-page/logo.jpg',
-      '/portfolio-page/talkflow-scene.png',
-      '/portfolio-page/talkflow-chat.png'
+      `${base}/logo.jpg`,
+      `${base}/talkflow-scene.png`,
+      `${base}/talkflow-chat.png`,
     ],
     technologies: [
       'Kotlin',
@@ -125,14 +126,14 @@ export const projects: Project[] = [
         I also gained practical experience in cloud deployment (Azure) and learned the value of automation in tasks such as backups and notifications.`
       }
     },
-    image: '/portfolio-page/simarropoplogo.jpeg',
+    image: `${base}/simarropoplogo.jpeg`,
     images: [
-      '/portfolio-page/simarropoplogo.jpeg',
-      '/portfolio-page/simarropop1.jpg',
-      '/portfolio-page/simarropop2.jpg',
-      '/portfolio-page/simarropop3.jpg',
-      '/portfolio-page/simarropop4.jpg',
-      '/portfolio-page/simarropop5.jpg',
+      `${base}/simarropoplogo.jpeg`,
+      `${base}/simarropop1.jpg`,
+      `${base}/simarropop2.jpg`,
+      `${base}/simarropop3.jpg`,
+      `${base}/simarropop4.jpg`,
+      `${base}/simarropop5.jpg`,
     ],
     technologies: ['Kotlin',
       'Android SDK',
@@ -173,11 +174,11 @@ export const projects: Project[] = [
         El frontend se desarrolla con React Native y Expo, lo que permite su despliegue tanto en web como en aplicaciones móviles. 
         En el backend, implementado en Spring Boot, se han incorporado mecanismos de seguridad con Spring Security, autenticación con JWT y encriptación con BCrypt. 
         El proyecto se encuentra en fase de construcción, ampliando funcionalidades de filtrado, favoritos y chat entre usuarios.`,
-  
+
         implementation: `En el frontend, se utiliza React Native con Expo, aprendiendo conceptos clave como componentes reutilizables, navegación y manejo de estado. 
         En el backend con Spring Boot, se ha configurado Spring Security, manejo de CORS, API REST y JWT para garantizar sesiones seguras. 
         La base de datos se encuentra en diseño, priorizando la escalabilidad y normalización para usuarios, propiedades y transacciones.`,
-  
+
         learnings: `Estoy aprendiendo React Native desde cero, entendiendo cómo construir aplicaciones multiplataforma con un solo código base. 
         En la parte de backend, refuerzo el uso de Spring Security, JWT y BCrypt para la seguridad y buenas prácticas en diseño de APIs REST. 
         El mayor aprendizaje es coordinar el desarrollo simultáneo de frontend multiplataforma y backend seguro, integrando ambos de forma fluida.`
@@ -187,18 +188,18 @@ export const projects: Project[] = [
         The frontend is built with React Native and Expo, allowing deployment on both web and mobile platforms. 
         The backend, developed in Spring Boot, implements Spring Security, JWT authentication, and BCrypt encryption. 
         The project is under construction, expanding features like filtering, favorites, and user-to-user chat.`,
-  
+
         implementation: `On the frontend, React Native with Expo is used, learning key concepts like reusable components, navigation, and state management. 
         On the backend, Spring Boot with Spring Security, CORS handling, REST APIs, and JWT was configured to ensure secure sessions. 
         The database is in design phase, focusing on scalability and normalization for users, properties, and transactions.`,
-  
+
         learnings: `I am learning React Native from scratch, understanding how Fto build cross-platform apps with a single codebase. 
         On the backend, I am reinforcing Spring Security, JWT, and BCrypt for robust authentication and best practices in REST API design. 
         The biggest learning has been coordinating the development of a cross-platform frontend with a secure backend, and ensuring smooth integration between them.`
       }
     },
-    image: '/portfolio-page/habinext-logo.jpg',
-    images: ['/portfolio-page/habinext-logo.jpg'],
+    image: `${base}/habinext-logo.jpg`,
+    images: [`${base}/habinext-logo.jpg`],
     technologies: [
       'React Native',
       'Expo',
@@ -217,5 +218,5 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/miv986/habinext_frontend',
     featured: false
   }
-  
+
 ];
