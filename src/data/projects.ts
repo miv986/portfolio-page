@@ -1,5 +1,6 @@
 import { Project } from '../types';
-const base = import.meta.env.VITE_BASE_PATH
+const base = import.meta.env.VITE_BASE_PATH || '';
+
 
 export const projects: Project[] = [
   {
