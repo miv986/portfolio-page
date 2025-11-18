@@ -1,64 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
-import { Send, Github, Linkedin, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { Send, Github, Linkedin, CheckCircle } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
+import { useForm } from '@formspree/react'
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [state, handleSubmit] = useForm('xrbjgnjj');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  useEffect(() => {
+    if (state.succeeded) {
+      // Reset form after successful submission
+      const form = document.querySelector('form') as HTMLFormElement;
+      if (form) {
+        form.reset();
+      }
+      // Clean URL parameters
+      if (window.location.search) {
+        window.history.replaceState({}, '', window.location.pathname + window.location.hash);
+      }
+    }
+  }, [state.succeeded]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: '', email: '', message: '' });
-    
-    // Reset success state after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000);
-  };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'miros-98@hotmail.es',
-      href: 'mailto:miros-98@hotmail.es',
-      color: 'primary' as const,
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '+34 632 109 661',
-      href: 'tel:+34632109661',
-      color: 'secondary' as const,
-    },
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: t('contact.location'),
-      color: 'accent' as const,
-    },
-  ];
 
   const socialLinks = [
     {
@@ -105,8 +71,8 @@ const Contact: React.FC = () => {
               <h2 className="text-2xl font-bold text-raisin-black mb-6">
                 {t('contact.send')}
               </h2>
-              
-              {isSubmitted ? (
+
+              {state.succeeded ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -114,14 +80,19 @@ const Contact: React.FC = () => {
                 >
                   <CheckCircle size={48} className="text-green-500 mx-auto mb-4" />
                   <h3 className="text-lg font-semibold text-green-700 mb-2">
-                    Message Sent Successfully!
+                    {t('contact.messageSent')}
                   </h3>
                   <p className="text-green-600">
-                    Thank you for reaching out. I'll get back to you soon.
+                    {t('contact.messageSentDescription')}
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={(e) => { e.preventDefault(); handleSubmit(e); }} className="space-y-6" method='POST'>
+                  {state.errors && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                      <p>An error occurred. Please try again.</p>
+                    </div>
+                  )}
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-eggplant mb-2">
                       {t('contact.name')}
@@ -130,14 +101,12 @@ const Contact: React.FC = () => {
                       type="text"
                       id="name"
                       name="name"
-                      value={formData.name}
-                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white/70 backdrop-blur-sm"
-                      placeholder="Your name"
+                      placeholder={t('contact.namePlaceholder')}
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-eggplant mb-2">
                       {t('contact.email')}
@@ -146,14 +115,12 @@ const Contact: React.FC = () => {
                       type="email"
                       id="email"
                       name="email"
-                      value={formData.email}
-                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white/70 backdrop-blur-sm"
-                      placeholder="your.email@example.com"
+                      placeholder={t('contact.emailPlaceholder')}
                     />
                   </div>
-                  
+
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-eggplant mb-2">
                       {t('contact.message')}
@@ -162,23 +129,21 @@ const Contact: React.FC = () => {
                       id="message"
                       name="message"
                       rows={6}
-                      value={formData.message}
-                      onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors bg-white/70 backdrop-blur-sm resize-none"
-                      placeholder="Tell me about your project or just say hello..."
+                      placeholder={t('contact.messagePlaceholder')}
                     />
                   </div>
-                  
+
                   <Button
                     type="submit"
                     size="lg"
                     className="w-full"
-                    isLoading={isSubmitting}
-                    disabled={isSubmitting}
+                    isLoading={state.submitting}
+                    disabled={state.submitting}
                   >
                     <Send size={20} />
-                    {isSubmitting ? 'Sending...' : t('contact.send')}
+                    {state.submitting ? t('contact.sending') : t('contact.send')}
                   </Button>
                 </form>
               )}
@@ -192,41 +157,6 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-6"
           >
-            {/* Contact Information */}
-            <Card padding="lg" shadow="medium">
-              <h3 className="text-xl font-bold text-raisin-black mb-6">
-                Get in Touch
-              </h3>
-              <div className="space-y-4">
-                {contactInfo.map((item, index) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                    className="flex items-center gap-4"
-                  >
-                    <div className={`p-3 rounded-lg bg-${item.color}-100 text-${item.color}-600`}>
-                      <item.icon size={20} />
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-eggplant">{item.label}</p>
-                      {item.href ? (
-                        <a
-                          href={item.href}
-                          className="text-raisin-black hover:text-primary-600 transition-colors font-medium"
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        <p className="text-raisin-black font-medium">{item.value}</p>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </Card>
-
             {/* Social Links */}
             <Card padding="lg" shadow="medium">
               <h3 className="text-xl font-bold text-raisin-black mb-6">
@@ -262,9 +192,9 @@ const Contact: React.FC = () => {
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse-soft" />
                   <div>
-                    <p className="font-semibold text-green-800">Available for Projects</p>
+                    <p className="font-semibold text-green-800">{t('contact.available')}</p>
                     <p className="text-sm text-green-600">
-                      Currently accepting new opportunities
+                      {t('contact.accepting')}
                     </p>
                   </div>
                 </div>

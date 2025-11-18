@@ -4,6 +4,107 @@ const base = import.meta.env.VITE_BASE_PATH || '';
 
 export const projects: Project[] = [
   {
+    id: 'kids-playcenter',
+    title: {
+      es: 'Ludoteca - Sistema de Gestión de Reservas',
+      en: 'Kids Playcenter - Booking Management System'
+    },
+    description: {
+      es: 'Sistema completo de gestión de reservas para centro infantil con backend en Node.js/Express y frontend en Next.js.',
+      en: 'Complete booking management system for children\'s center with Node.js/Express backend and Next.js frontend.'
+    },
+    longDescription: {
+      es: {
+        overview: `Desarrollé un sistema completo de gestión de reservas para un centro infantil, incluyendo reservas de ludoteca diaria y reservas de cumpleaños. 
+        El backend se implementó con Node.js, Express y TypeScript, utilizando Prisma ORM para la gestión de base de datos PostgreSQL. 
+        El frontend se desarrolló con Next.js 15, React 18 y Tailwind CSS, proporcionando una interfaz moderna y responsive. 
+        El sistema incluye autenticación JWT con refresh tokens, roles de usuario (admin, usuario, niño), gestión de slots disponibles, 
+        sistema de notificaciones por email con Resend, y automatización de tareas con node-cron para el cierre automático de reservas.`,
+
+        implementation: `En el backend, implementé una arquitectura REST API con Express, utilizando middleware de seguridad como Helmet, 
+        express-rate-limit para protección contra ataques, y express-validator junto con class-validator para validación de datos. 
+        La autenticación se gestiona con JWT y refresh tokens almacenados en base de datos. 
+        Prisma se utiliza como ORM con migraciones para el esquema de base de datos, incluyendo modelos para usuarios, reservas, slots, 
+        paquetes de cumpleaños y notas de niños. 
+        Se implementó un sistema de jobs con node-cron para el cierre automático de reservas. 
+        En el frontend, Next.js 15 con App Router permite renderizado del lado del servidor y routing optimizado. 
+        Se utilizaron Context API para gestión de estado global (autenticación, reservas, slots), 
+        react-hot-toast para notificaciones, y componentes reutilizables con Tailwind CSS para un diseño consistente. 
+        La aplicación incluye dashboards separados para administradores y usuarios, con funcionalidades de gestión de reservas, 
+        calendario interactivo, y sistema de notas para comunicación entre padres y administradores.`,
+
+        learnings: `Aprendí a desarrollar aplicaciones fullstack completas desde cero, coordinando backend y frontend de forma independiente. 
+        Profundicé en Next.js 15 con App Router, aprendiendo sobre Server Components, routing dinámico y optimizaciones de rendimiento. 
+        Reforcé conocimientos de TypeScript aplicándolo tanto en backend como frontend para type safety. 
+        Aprendí a utilizar Prisma ORM para modelado de datos complejos con relaciones many-to-many, migraciones y validaciones. 
+        Implementé seguridad avanzada con JWT refresh tokens, rate limiting y validación robusta de datos. 
+        También aprendí a integrar servicios externos como Resend para emails transaccionales y a automatizar tareas con node-cron. 
+        El mayor reto fue diseñar un sistema de slots y reservas que maneje correctamente la disponibilidad, 
+        capacidad y estados de las reservas, asegurando integridad de datos en operaciones concurrentes.`
+      },
+      en: {
+        overview: `Developed a complete booking management system for a children's center, including daily daycare bookings and birthday party reservations. 
+        The backend was implemented with Node.js, Express and TypeScript, using Prisma ORM for PostgreSQL database management. 
+        The frontend was built with Next.js 15, React 18 and Tailwind CSS, providing a modern and responsive interface. 
+        The system includes JWT authentication with refresh tokens, user roles (admin, user, child), slot availability management, 
+        email notifications with Resend, and task automation with node-cron for automatic booking closures.`,
+
+        implementation: `On the backend, I implemented a REST API architecture with Express, using security middleware like Helmet, 
+        express-rate-limit for attack protection, and express-validator along with class-validator for data validation. 
+        Authentication is managed with JWT and refresh tokens stored in the database. 
+        Prisma is used as ORM with migrations for the database schema, including models for users, bookings, slots, 
+        birthday packages and child notes. 
+        A job system with node-cron was implemented for automatic booking closures. 
+        On the frontend, Next.js 15 with App Router enables server-side rendering and optimized routing. 
+        Context API was used for global state management (authentication, bookings, slots), 
+        react-hot-toast for notifications, and reusable components with Tailwind CSS for consistent design. 
+        The application includes separate dashboards for administrators and users, with booking management features, 
+        interactive calendar, and a note system for communication between parents and administrators.`,
+
+        learnings: `I learned to develop complete fullstack applications from scratch, coordinating backend and frontend independently. 
+        I deepened my knowledge of Next.js 15 with App Router, learning about Server Components, dynamic routing and performance optimizations. 
+        I reinforced TypeScript knowledge applying it in both backend and frontend for type safety. 
+        I learned to use Prisma ORM for complex data modeling with many-to-many relationships, migrations and validations. 
+        I implemented advanced security with JWT refresh tokens, rate limiting and robust data validation. 
+        I also learned to integrate external services like Resend for transactional emails and to automate tasks with node-cron. 
+        The biggest challenge was designing a slot and booking system that correctly handles availability, 
+        capacity and booking states, ensuring data integrity in concurrent operations.`
+      }
+    },
+    image: `${base}/logo-ludoteca-n.png`,
+    images: [
+      `${base}/home.png`,
+      `${base}/panel-user.png`,
+      `${base}/panel-admin.png`,
+      `${base}/reservas-daycare.png`,
+      `${base}/reserva-ludoteca.png`,
+      `${base}/reservas-birthday.png`,
+      `${base}/detalles-reserva-ludo.png`,
+      `${base}/tutores.png`
+    ],
+    technologies: [
+      'TypeScript',
+      'Node.js',
+      'Express',
+      'Prisma',
+      'PostgreSQL',
+      'JWT',
+      'bcrypt',
+      'Next.js',
+      'React',
+      'Tailwind CSS',
+      'Helmet',
+      'Resend',
+      'CORS',
+      'REST API',
+      'Context API',
+      'Git',
+    ],
+    liveUrl: '',
+    githubUrl: 'https://github.com/miv986/kids-playcenter-backend',
+    featured: true
+  },
+  {
     id: 'translation-app',
     title: {
       es: 'Aplicación de traducciones con IA',
@@ -80,7 +181,7 @@ export const projects: Project[] = [
     ],
     liveUrl: 'https://www.dropbox.com/scl/fi/ntdcjoik2zhn8twdm8hw7/Talkflow_Demo.mp4?rlkey=hpn7ixcuahcamf6qeoqxgrkqh&st=zdkjdk7s&dl=0',
     githubUrl: 'https://github.com/miv986/proyecto_talkflow_frontend',
-    featured: true
+    featured: false
   },
   {
     id: 'secondhand-sale-app',

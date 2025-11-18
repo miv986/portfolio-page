@@ -8,7 +8,7 @@
   "home": {
     "title": "Desarrolladora Junior Full Stack",
     "subtitle": "Creando experiencias digitales excepcionales",
-    "bio": "Soy una desarrollador apasionado con experiencia en tecnologías modernas. Me especializo en crear aplicaciones web robustas y experiencias de usuario intuitivas.",
+    "bio": "Soy una desarrolladora apasionada con experiencia en tecnologías modernas. Me especializo en crear aplicaciones web robustas y experiencias de usuario intuitivas.",
     "downloadCV": "Descargar CV",
     "featuredProjects": "Proyectos Destacados",
     "viewAllProjects": "Ver Todos los Proyectos"
@@ -35,11 +35,21 @@
     "title": "Contacto",
     "subtitle": "¿Tienes un proyecto en mente? ¡Hablemos!",
     "name": "Nombre",
+    "namePlaceholder": "Nombre",
     "email": "Correo Electrónico",
+    "emailPlaceholder": "tu-correo@ej.com",
+    "phone": "Teléfono",  
+    "location": "Ubicación",
     "message": "Mensaje",
+    "messagePlaceholder": "Cuéntame sobre tu proyecto o simplemente saluda...",
     "send": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "messageSent": "Mensaje Enviado Exitosamente",
+    "messageSentDescription": "Gracias por contactarme. Me pondré en contacto contigo lo antes posible.",
     "socialMedia": "Redes Sociales",
-    "location": "Canals, España"
+    "country": "España",
+    "available": "Disponible para proyectos",
+    "accepting": "Actualmente acepto nuevas oportunidades"
   },
   "footer": {
     "rights": "Todos los derechos reservados"

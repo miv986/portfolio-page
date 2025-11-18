@@ -1,7 +1,18 @@
 import { Experience, Education } from '../types';
 
 export const experiences: Experience[] = [
-
+  {
+    company: 'Freelance',
+    position: {
+      es: 'Desarrolladora Fullstack Autónoma',
+      en: 'Fullstack Freelance Developer'
+    },
+    period: '06/2025 - Present',
+    description: {
+      es: 'Desarrollo fullstack de aplicaciones web completas, incluyendo backend con Node.js, Express y Prisma, y frontend con Next.js y React.',
+      en: 'Fullstack development of complete web applications, including backend with Node.js, Express and Prisma, and frontend with Next.js and React.'
+    }
+  },
   {
     company: 'Pawify.org',
     position: {
@@ -42,11 +53,12 @@ export const education: Education[] = [
 export const skills = [
   'Java', 'Kotlin', 'PHP', 'JavaScript', 'TypeScript', 'SQL', 'HTML', 'CSS', 'XML',
   'Spring', 'Spring Boot', 'Hibernate', 'Jetpack Compose', 'MVC', 'jQuery',
-  'React', 'React Native', 'Bootstrap', 'Retrofit', 'Room',
+  'React', 'React Native', 'Next.js', 'Bootstrap', 'Retrofit', 'Room',
+  'Node.js', 'Express.js', 'body-parser', 'Prisma',
   'MySQL', 'SQLite', 'PostgreSQL',
   'Git', 'GitHub', 'Postman', 'Maven', 'Gradle',
   'IntelliJ IDEA', 'Android Studio', 'VS Code',
   'REST APIs', 'API REST', 'JWT Authentication', 'Swagger', 'JSON',
   'Material Design', 'Jetpack Compose UI', 'Responsive Design', 'Figma (Prototypes)',
-  'Tailwind CSS'
+  'Tailwind CSS', 'Helmet', 'Resend'
 ];

@@ -35,11 +35,21 @@
     "title": "Contact",
     "subtitle": "Have a project in mind? Let's talk!",
     "name": "Name",
+    "namePlaceholder": "Your name",
     "email": "Email",
+    "emailPlaceholder": "your.email@example.com",
+    "phone": "Phone",
+    "location": "Location",
     "message": "Message",
+    "messageSent": "Message Sent Successfully",
+    "messageSentDescription": "Thank you for reaching out. I'll get back to you soon.",
+    "messagePlaceholder": "Tell me about your project or just say hello...",
     "send": "Send Message",
+    "sending": "Sending...",
     "socialMedia": "Social Media",
-    "location": "Canals, Spain"
+    "country": "Spain",
+    "available": "Available for projects",
+    "accepting": "Currently accepting new opportunities"
   },
   "footer": {
     "rights": "All rights reserved"

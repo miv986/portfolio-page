@@ -8,7 +8,7 @@ import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import About from './pages/About';
 import Contact from './pages/Contact';
-
+import NotFound from './pages/NotFound';
 function App() {
   const { i18n } = useTranslation();
 
@@ -25,6 +25,7 @@ function App() {
           <Route path="/project/:id" element={<Navigate to="/proyectos" replace />} />
           <Route path="/about" element={<Navigate to="/sobre-mi" replace />} />
           <Route path="/contact" element={<Navigate to="/contacto" replace />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       );
     } else {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/proyecto/:id" element={<Navigate to="/projects" replace />} />
           <Route path="/sobre-mi" element={<Navigate to="/about" replace />} />
           <Route path="/contacto" element={<Navigate to="/contact" replace />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       );
     }
