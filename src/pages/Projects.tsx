@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
-import { Filter, Grid, List } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Filter, Grid, List, ChevronDown } from 'lucide-react';
 import { projects } from '../data/projects';
 import ProjectCard from '../components/ProjectCard';
 import Button from '../components/ui/Button';
@@ -11,6 +11,7 @@ const Projects: React.FC = () => {
   const { t } = useTranslation();
   const [selectedTech, setSelectedTech] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [isFiltersExpanded, setIsFiltersExpanded] = useState<boolean>(true);
 
   // Get all unique technologies
   const allTechnologies = Array.from(
@@ -48,76 +49,109 @@ const Projects: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-8"
         >
-          <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-soft border border-white/50">
-            <div className="flex flex-col lg:flex-row gap-4 items-start lg:items-center justify-between">
-              {/* Technology Filter */}
-              <div className="flex-1">
-                <div className="flex items-center gap-2 mb-3">
-                  <Filter size={18} className="text-primary-600" />
-                  <span className="font-medium text-primary-800">
-                    {t('projects.technologies')}
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  <Button
-                    variant={selectedTech === null ? 'primary' : 'ghost'}
-                    size="sm"
-                    onClick={() => setSelectedTech(null)}
-                  >
-                    All
-                  </Button>
-                  {allTechnologies.map((tech) => (
-                    <Button
-                      key={tech}
-                      variant={selectedTech === tech ? 'primary' : 'ghost'}
-                      size="sm"
-                      onClick={() => setSelectedTech(tech)}
-                    >
-                      {tech}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-
-              {/* View Mode Toggle */}
-              <div className="flex items-center gap-2 bg-white rounded-lg p-1 shadow-soft">
-                <button
-                  onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-md transition-colors ${
-                    viewMode === 'grid'
-                      ? 'bg-primary-600 text-white'
-                      : 'text-primary-600 hover:bg-primary-50'
-                  }`}
-                >
-                  <Grid size={18} />
-                </button>
-                <button
-                  onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-md transition-colors ${
-                    viewMode === 'list'
-                      ? 'bg-primary-600 text-white'
-                      : 'text-primary-600 hover:bg-primary-50'
-                  }`}
-                >
-                  <List size={18} />
-                </button>
-              </div>
-            </div>
-
-            {/* Results count */}
-            <div className="mt-4 pt-4 border-t border-primary-100">
-              <p className="text-sm text-eggplant">
-                {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+          <div className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-soft border border-white/50 overflow-hidden">
+            {/* Header con botón de plegar/desplegar */}
+            <div 
+              className="flex items-center justify-between p-6 cursor-pointer hover:bg-white/50 transition-colors"
+              onClick={() => setIsFiltersExpanded(!isFiltersExpanded)}
+            >
+              <div className="flex items-center gap-2">
+                <Filter size={18} className="text-primary-600" />
+                <span className="font-medium text-primary-800">
+                  {t('projects.technologies')}
+                </span>
                 {selectedTech && (
-                  <>
-                    {' '}with{' '}
-                    <Badge variant="primary" size="sm">
-                      {selectedTech}
-                    </Badge>
-                  </>
+                  <Badge variant="primary" size="sm">
+                    {selectedTech}
+                  </Badge>
                 )}
-              </p>
+              </div>
+              <div className="flex items-center gap-4">
+                {/* View Mode Toggle */}
+                <div 
+                  className="flex items-center gap-2 bg-white rounded-lg p-1 shadow-soft"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    onClick={() => setViewMode('grid')}
+                    className={`p-2 rounded-md transition-colors ${
+                      viewMode === 'grid'
+                        ? 'bg-primary-600 text-white'
+                        : 'text-primary-600 hover:bg-primary-50'
+                    }`}
+                  >
+                    <Grid size={18} />
+                  </button>
+                  <button
+                    onClick={() => setViewMode('list')}
+                    className={`p-2 rounded-md transition-colors ${
+                      viewMode === 'list'
+                        ? 'bg-primary-600 text-white'
+                        : 'text-primary-600 hover:bg-primary-50'
+                    }`}
+                  >
+                    <List size={18} />
+                  </button>
+                </div>
+                <motion.div
+                  animate={{ rotate: isFiltersExpanded ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ChevronDown size={20} className="text-primary-600" />
+                </motion.div>
+              </div>
             </div>
+
+            {/* Contenido plegable */}
+            <AnimatePresence>
+              {isFiltersExpanded && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-6 pb-6">
+                    {/* Technology Filter */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      <Button
+                        variant={selectedTech === null ? 'primary' : 'ghost'}
+                        size="sm"
+                        onClick={() => setSelectedTech(null)}
+                      >
+                        All
+                      </Button>
+                      {allTechnologies.map((tech) => (
+                        <Button
+                          key={tech}
+                          variant={selectedTech === tech ? 'primary' : 'ghost'}
+                          size="sm"
+                          onClick={() => setSelectedTech(tech)}
+                        >
+                          {tech}
+                        </Button>
+                      ))}
+                    </div>
+
+                    {/* Results count */}
+                    <div className="pt-4 border-t border-primary-100">
+                      <p className="text-sm text-eggplant">
+                        {filteredProjects.length} {filteredProjects.length === 1 ? 'project' : 'projects'}
+                        {selectedTech && (
+                          <>
+                            {' '}with{' '}
+                            <Badge variant="primary" size="sm">
+                              {selectedTech}
+                            </Badge>
+                          </>
+                        )}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </motion.div>
 

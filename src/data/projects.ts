@@ -71,16 +71,21 @@ export const projects: Project[] = [
         capacity and booking states, ensuring data integrity in concurrent operations.`
       }
     },
-    image: `${base}/logo-ludoteca-n.png`,
+    image: `${base}/ludoteca-imagenes/logo-ludoteca-removebg.png`,
     images: [
-      `${base}/home.png`,
-      `${base}/panel-user.png`,
-      `${base}/panel-admin.png`,
-      `${base}/reservas-daycare.png`,
-      `${base}/reserva-ludoteca.png`,
-      `${base}/reservas-birthday.png`,
-      `${base}/detalles-reserva-ludo.png`,
-      `${base}/tutores.png`
+      `${base}/ludoteca-imagenes/home.png`,
+      `${base}/ludoteca-imagenes/reserva-daycare.png`,
+      `${base}/ludoteca-imagenes/reserva-daycare1.png`,
+      `${base}/ludoteca-imagenes/panel-user.png`,
+      `${base}/ludoteca-imagenes/reserva-daycare2.png`,
+      `${base}/ludoteca-imagenes/panel-user1.png`,
+      `${base}/ludoteca-imagenes/panel-admin-daycareb.png`,
+      `${base}/ludoteca-imagenes/panel-admin-slotsl.png`,
+      `${base}/ludoteca-imagenes/panel-admin-birthdayb.png`,
+      `${base}/ludoteca-imagenes/panel-admin-birthdayd.png`,
+      `${base}/ludoteca-imagenes/reserva-ludoteca.png`,
+      `${base}/ludoteca-imagenes/tutores.png`,
+      `${base}/ludoteca-imagenes/logo-ludoteca.png`
     ],
     technologies: [
       'TypeScript',
@@ -150,11 +155,11 @@ export const projects: Project[] = [
         The main challenge was orchestrating voice services and model responses to create a smooth mobile experience.`
       }
     },
-    image: `${base}/logo.jpg`,
+    image: `${base}/talkflow-imagenes/logo.jpg`,
     images: [
-      `${base}/logo.jpg`,
-      `${base}/talkflow-scene.png`,
-      `${base}/talkflow-chat.png`,
+      `${base}/talkflow-imagenes/logo.jpg`,
+      `${base}/talkflow-imagenes/talkflow-scene.png`,
+      `${base}/talkflow-imagenes/talkflow-chat.png`,
     ],
     technologies: [
       'Kotlin',
@@ -181,7 +186,7 @@ export const projects: Project[] = [
     ],
     liveUrl: 'https://www.dropbox.com/scl/fi/ntdcjoik2zhn8twdm8hw7/Talkflow_Demo.mp4?rlkey=hpn7ixcuahcamf6qeoqxgrkqh&st=zdkjdk7s&dl=0',
     githubUrl: 'https://github.com/miv986/proyecto_talkflow_frontend',
-    featured: false
+    featured: true
   },
   {
     id: 'secondhand-sale-app',
@@ -228,14 +233,14 @@ export const projects: Project[] = [
         I also gained practical experience in cloud deployment (Azure) and learned the value of automation in tasks such as backups and notifications.`
       }
     },
-    image: `${base}/simarropoplogo.jpeg`,
+    image: `${base}simarropop-imagenes/simarropoplogo.jpeg`,
     images: [
-      `${base}/simarropoplogo.jpeg`,
-      `${base}/simarropop1.jpg`,
-      `${base}/simarropop2.jpg`,
-      `${base}/simarropop3.jpg`,
-      `${base}/simarropop4.jpg`,
-      `${base}/simarropop5.jpg`,
+      `${base}simarropop-imagenes/simarropoplogo.jpeg`,
+      `${base}simarropop-imagenes/simarropop1.jpg`,
+      `${base}simarropop-imagenes/simarropop2.jpg`,
+      `${base}simarropop-imagenes/simarropop3.jpg`,
+      `${base}simarropop-imagenes/simarropop4.jpg`,
+      `${base}simarropop-imagenes/simarropop5.jpg`,
     ],
     technologies: ['Kotlin',
       'Android SDK',
@@ -258,7 +263,7 @@ export const projects: Project[] = [
       'Git'],
     liveUrl: 'https://www.dropbox.com/scl/fi/xuk6unbhxh9www5exak4a/portfolio-page/simarropop_Demo.mp4?rlkey=egbp8k4glzg9kfighgx3ot8w7&st=06zvpcfy&dl=0',
     githubUrl: 'https://github.com/username/task-management',
-    featured: true
+    featured: false
   },
   {
     id: 'real-estate-app',
@@ -300,8 +305,8 @@ export const projects: Project[] = [
         The biggest learning has been coordinating the development of a cross-platform frontend with a secure backend, and ensuring smooth integration between them.`
       }
     },
-    image: `${base}/habinext-logo.jpg`,
-    images: [`${base}/habinext-logo.jpg`],
+    image: `${base}habinext-imagenes/habinext-logo.jpg`,
+    images: [`${base}habinext-imagenes/habinext-logo.jpg`],
     technologies: [
       'React Native',
       'Expo',

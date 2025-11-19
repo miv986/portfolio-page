@@ -68,9 +68,9 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <Card padding="lg" shadow="large">
-              <h2 className="text-2xl font-bold text-raisin-black mb-6">
+              <Card.Title size="lg" className="mb-6">
                 {t('contact.send')}
-              </h2>
+              </Card.Title>
 
               {state.succeeded ? (
                 <motion.div
@@ -159,9 +159,9 @@ const Contact: React.FC = () => {
           >
             {/* Social Links */}
             <Card padding="lg" shadow="medium">
-              <h3 className="text-xl font-bold text-raisin-black mb-6">
+              <Card.Title size="md" className="mb-6">
                 {t('contact.socialMedia')}
-              </h3>
+              </Card.Title>
               <div className="flex gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a

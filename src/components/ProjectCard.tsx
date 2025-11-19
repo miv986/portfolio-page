@@ -58,9 +58,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           )}
         </div>
       </div>
-      <div className="p-6">
-        <h3 className="text-lg font-semibold">{project.title[currentLang]}</h3>
-        <p className="text-gray-600 mb-4">
+      <div className="p-6 flex flex-col flex-1">
+        <h3 className="text-lg font-semibold text-raisin-black mb-3">
+          {project.title[currentLang]}
+        </h3>
+        <p className="text-eggplant text-sm leading-relaxed mb-4 flex-1">
           {project.description[currentLang]}
         </p>
         <div className="flex flex-wrap gap-2 mb-4">
@@ -79,10 +81,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           )}
         </div>
 
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between pt-2 border-t border-lavender-web">
           <Link
             to={getProjectPath(project.id)}
-            className="hover:text-blue-800 font-medium"
+            className="text-raisin-black hover:text-primary-600 font-medium text-sm transition-colors"
           >
             {t('projects.viewProject')}
           </Link>
@@ -92,7 +94,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                className="p-2 text-eggplant hover:text-primary-600 transition-colors"
               >
                 <ExternalLink size={18} />
               </a>
@@ -102,7 +104,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+                className="p-2 text-eggplant hover:text-primary-600 transition-colors"
               >
                 <Github size={18} />
               </a>

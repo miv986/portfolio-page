@@ -19,8 +19,8 @@ const Home: React.FC = () => {
 
   const handleDownloadCV = () => {
     const cvUrl = i18n.language === 'es'
-      ? `${basePath}/Miroslava Ivanova-CV-esp.pdf`
-      : `${basePath}/Miroslava Ivanova-CV-eng.pdf`;;
+      ? `${basePath}/Miroslava-CV-es.pdf`
+      : `${basePath}/Miroslava-CV-en.pdf`;;
     const link = document.createElement('a');
     link.href = cvUrl;
     link.download = `CV-${i18n.language.toUpperCase()}.pdf`;
